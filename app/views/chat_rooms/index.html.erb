@@ -1,1 +1,34 @@
-<h1>Index Page </h1>
+<h2 class="ui center aligned icon header">
+  <i class="circular users icon"></i>
+  Say Something
+</h2>
+
+<div class="ui two column grid">
+    <div class="twelve wide column">
+        <div class="ui small feed" id="message-container">
+            <%= render @messages %>
+        </div>
+        <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: messages_path, remote: true) do |f| %>
+            <div class="field">
+                <div class="ui fluid icon input">
+                    <%= f.text_field :body %>
+                    <%= f.button class: '<i class="icon edit"></i>'.html_safe %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="four wide column">
+        <div class="ui inverted vertical menu">
+        <a class="active item">
+            Home
+        </a>
+        <a class="item">
+            Messages
+        </a>
+        <a class="item">
+            Friends
+        </a>
+        </div>
+    </div>
+</div>
